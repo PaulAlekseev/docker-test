@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    #    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRESS_URL}
+    username: ${POSTGRESS_USERNAME}
+    password: ${POSTGRESS_PASSWORD}
