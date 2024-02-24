@@ -1,10 +1,7 @@
 package docker.example.application;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.WebSocketMessage;
-import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.*;
 
 @Slf4j
 public class WebsocketMessageHandler implements WebSocketHandler {
@@ -16,6 +13,7 @@ public class WebsocketMessageHandler implements WebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         log.info(String.format("Message came: %s from %s", message.getPayload(), session.getRemoteAddress()));
+        session.sendMessage(new TextMessage("Hello"));
     }
 
     @Override
