@@ -13,7 +13,7 @@ public class WebsocketMessageHandler implements WebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         log.info(String.format("Message came: %s from %s", message.getPayload(), session.getRemoteAddress()));
-        session.sendMessage(new TextMessage("Hello"));
+        session.sendMessage(new TextMessage("fortnite"));
     }
 
     @Override
