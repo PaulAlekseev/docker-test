@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/server/test")
 public class MyController {
 
     private final MyEntityRepository myEntityRepository;
@@ -18,6 +18,11 @@ public class MyController {
     @GetMapping("/")
     public ResponseEntity<List<MyEntityDto>> getAllMyEntities() {
         return ResponseEntity.ok().body(myEntityRepository.findByNameNotNullAndIdNotNull());
+    }
+
+    @GetMapping("/fortnite")
+    public ResponseEntity<String> getHello() {
+        return ResponseEntity.ok().body("hello");
     }
 
     @PostMapping("/")
