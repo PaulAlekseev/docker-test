@@ -22,7 +22,7 @@ public class MyController {
 
     @GetMapping("/fortnite")
     public ResponseEntity<String> getHello() {
-        return ResponseEntity.ok().body("hello");
+        return ResponseEntity.ok().body("hello2");
     }
 
     @PostMapping("/")
