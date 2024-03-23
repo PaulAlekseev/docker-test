@@ -13,12 +13,4 @@ import java.util.Map;
 @Configuration
 public class MyConfig {
 
-    @Bean
-    public NewTopic topic1() {
-        return TopicBuilder.name("thing1")
-                .partitions(10)
-                .replicas(3)
-                .compact()
-                .build();
-    }
 }
