@@ -14,18 +14,18 @@ import java.util.Map;
 @Configuration
 @EnableKafka
 public class MyConfig {
-    @Bean
-    public KafkaAdmin admin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        return new KafkaAdmin(configs);
-    }
-    @Bean
-    public NewTopic topic1() {
-        return TopicBuilder.name("thing1")
-                .partitions(10)
-                .replicas(3)
-                .compact()
-                .build();
-    }
+//    @Bean
+//    public KafkaAdmin admin() {
+//        Map<String, Object> configs = new HashMap<>();
+//        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+//        return new KafkaAdmin(configs);
+//    }
+//    @Bean
+//    public NewTopic topic1() {
+//        return TopicBuilder.name("thing1")
+//                .partitions(10)
+//                .replicas(3)
+//                .compact()
+//                .build();
+//    }
 }
