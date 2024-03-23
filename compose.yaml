@@ -7,6 +7,8 @@ services:
       - 127.0.0.1:3001:8004
     depends_on:
       - kafka
+    links:
+      - kafka
     environment:
       POSTGRESS_URL: db
       POSTGRESS_USERNAME: "root"
@@ -35,6 +37,8 @@ services:
       - zookeeper
     ports:
       - 29092:29092
+    links:
+      - zookeeper
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
