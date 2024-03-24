@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
 public class KafkaService {
 
 
-    private KafkaTemplate<Integer, String> template;
+    private final KafkaTemplate<Integer, String> template;
 
     public void sendToKafka() throws ExecutionException, InterruptedException, TimeoutException {
             template.send("thing1", "Niggers").get(10, TimeUnit.SECONDS);
