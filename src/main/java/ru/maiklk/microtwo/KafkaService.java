@@ -16,6 +16,6 @@ public class KafkaService {
     private final KafkaTemplate<Integer, String> template;
 
     public void sendToKafka() throws ExecutionException, InterruptedException, TimeoutException {
-            template.send("thing1", "Niggers").get(10, TimeUnit.SECONDS);
+            template.send("thing1", 123, "Niggers").get(10, TimeUnit.SECONDS);
     }
 }
