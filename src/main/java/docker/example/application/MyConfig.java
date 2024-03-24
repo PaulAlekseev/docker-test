@@ -20,29 +20,29 @@ import java.util.Map;
 public class MyConfig {
 
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
-    @Bean
-    public ProducerFactory<String, AbstractDto> producerFactory() {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
-        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        //Kafka сама решает когда создавать новые партиции, на основе ключа или нагрузки
-        properties.put(ProducerConfig.PARTITIONER_ADPATIVE_PARTITIONING_ENABLE_CONFIG, true);
-//        Можно реализовать Partitioner из пакета org.apache.kafka.clients.producer и каждая партиция
-//        будет со своей логикой
-//        properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG)
-//        по умолчанию ключ сообщения кафки является партицией
-//        properties.put(ProducerConfig.PARTITIONER_IGNORE_KEYS_CONFIG)
-        return new DefaultKafkaProducerFactory<>(properties);
-    }
-
-    @Bean
-    public KafkaTemplate<String, AbstractDto> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
-    }
+//    @Bean
+//    public RestTemplate restTemplate() {
+//        return new RestTemplate();
+//    }
+//
+//    @Bean
+//    public ProducerFactory<String, AbstractDto> producerFactory() {
+//        Map<String, Object> properties = new HashMap<>();
+//        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
+//        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+//        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+//        //Kafka сама решает когда создавать новые партиции, на основе ключа или нагрузки
+//        properties.put(ProducerConfig.PARTITIONER_ADPATIVE_PARTITIONING_ENABLE_CONFIG, true);
+////        Можно реализовать Partitioner из пакета org.apache.kafka.clients.producer и каждая партиция
+////        будет со своей логикой
+////        properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG)
+////        по умолчанию ключ сообщения кафки является партицией
+////        properties.put(ProducerConfig.PARTITIONER_IGNORE_KEYS_CONFIG)
+//        return new DefaultKafkaProducerFactory<>(properties);
+//    }
+//
+//    @Bean
+//    public KafkaTemplate<String, AbstractDto> kafkaTemplate() {
+//        return new KafkaTemplate<>(producerFactory());
+//    }
 }
