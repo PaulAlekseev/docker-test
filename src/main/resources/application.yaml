@@ -3,5 +3,9 @@ server:
   port: 8084
   address: 0.0.0.0
 
+
 # Kafka properties
 kafka_server: ${KAFKA_SERVER_HOST}:29092
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVER_HOST}:29092
