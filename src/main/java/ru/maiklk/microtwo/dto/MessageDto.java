@@ -1,6 +1,5 @@
-package ru.maiklk.microone.dto;
+package ru.maiklk.microtwo.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Builder
@@ -8,13 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MessageDto {
-    @JsonProperty
+public class MessageDto implements AbstractDto {
     private long chatId;
-    @JsonProperty
     private int date;
-    @JsonProperty
     private int messageId;
-    @JsonProperty
     private String text;
 }

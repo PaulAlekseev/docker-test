@@ -1,6 +1,5 @@
-package ru.maiklk.microone.dto;
+package ru.maiklk.microtwo.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Builder
@@ -8,15 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class IndividualDto {
-    @JsonProperty
+public class IndividualDto implements AbstractDto {
     private long id;
-    @JsonProperty
     private String firstName;
-    @JsonProperty
     private String lastName;
-    @JsonProperty
     private String userName;
-    @JsonProperty
     private String languageCode;
 }
