@@ -1,6 +1,7 @@
 package ru.maiklk.microtwo.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,8 @@ import ru.maiklk.microtwo.service.KafkaService;
 public class ProducerController {
 
     private final KafkaService kafkaService;
+    @Value("${kafka_server}")
+    private String kafkaServerHost;
 
     @PostMapping("/sendIndividual")
     public ResponseEntity<String> sendMessage(@RequestBody IndividualDto dto) {
@@ -25,6 +28,6 @@ public class ProducerController {
     @PostMapping("/sendMessage")
     public ResponseEntity<String> sendMessage(@RequestBody MessageDto dto) {
         kafkaService.send(dto);
-        return new ResponseEntity<>("Message send", HttpStatus.OK);
+        return new ResponseEntity<>(String.format("Successfully autowired: %s", kafkaServerHost), HttpStatus.OK);
     }
 }
