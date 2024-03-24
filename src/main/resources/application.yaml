@@ -1,3 +1,4 @@
+# Server properties
 spring:
   jpa:
     #    show-sql: true
@@ -7,6 +8,9 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -17,3 +21,8 @@ spring:
 server:
   address: 0.0.0.0
   port: 8004
+
+# Kafka properties
+topic_user: telegram_user
+topic_message: telegram_message
+group_id: telegram
