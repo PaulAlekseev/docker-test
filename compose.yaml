@@ -13,6 +13,7 @@ services:
       POSTGRESS_URL: db
       POSTGRESS_USERNAME: "root"
       POSTGRESS_PASSWORD: "secret"
+      THING: kafka
 
   db:
     image: postgres:13.3

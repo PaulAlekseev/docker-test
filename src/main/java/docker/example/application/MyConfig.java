@@ -7,9 +7,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 @Configuration
 @EnableKafka
 public class MyConfig {
-    @KafkaListener(topics = "thing1", groupId = "myGroup")
-    public void listen(String data) {
-        System.out.println("KAFKAAAAAAAAAAAAAAAAA");
-        System.out.println(data);
-    }
+//    @KafkaListener(topics = "thing1", groupId = "myGroup")
+//    public void listen(String data) {
+//        System.out.println("KAFKAAAAAAAAAAAAAAAAA");
+//        System.out.println(data);
+//    }
 }
