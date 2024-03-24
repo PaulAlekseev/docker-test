@@ -16,9 +16,6 @@ public class MyController {
 
     private final MyEntityRepository myEntityRepository;
 
-    @Value("${fortnite.bruh}")
-    private String fortnite;
-
     @GetMapping("/")
     public ResponseEntity<List<MyEntityDto>> getAllMyEntities() {
         return ResponseEntity.ok().body(myEntityRepository.findByNameNotNullAndIdNotNull());
@@ -26,7 +23,7 @@ public class MyController {
 
     @GetMapping("/fortnite")
     public ResponseEntity<String> getHello() throws ExecutionException, InterruptedException, TimeoutException {
-        return ResponseEntity.ok().body(fortnite);
+        return ResponseEntity.ok().body("hello");
     }
 
     @PostMapping("/")

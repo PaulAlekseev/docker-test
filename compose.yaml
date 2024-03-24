@@ -13,7 +13,6 @@ services:
       POSTGRESS_URL: db
       POSTGRESS_USERNAME: "root"
       POSTGRESS_PASSWORD: "secret"
-      THING: kafka
 
   db:
     image: postgres:13.3
@@ -41,7 +40,7 @@ services:
       - 8083:8080
     environment:
       KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: PLAINTEXT://kafka:9092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: PLAINTEXT://localhost:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
 
   kafka:
@@ -59,7 +58,7 @@ services:
       # данными между клиентами и брокерами Kafka.
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
       # Определяет, где и как Kafka будет доступна для клиентов
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       # Задержка перед началом перебалансировки группы потребителей.
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       # Количество репликаций в служебном топике офсетов
