@@ -3,7 +3,7 @@ services:
   app:
     image: docker-java:latest
     ports:
-      - 127.0.0.1:3001:8004
+      - 127.0.0.1:3001:8084
     depends_on:
       - kafka
       - db
