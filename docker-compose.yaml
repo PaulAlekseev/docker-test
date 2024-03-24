@@ -58,7 +58,7 @@ services:
       # данными между клиентами и брокерами Kafka.
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       # Определяет, где и как Kafka будет доступна для клиентов
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       # Задержка перед началом перебалансировки группы потребителей.
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       # Количество репликаций в служебном топике офсетов
