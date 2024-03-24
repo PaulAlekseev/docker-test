@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 @RestController
 @RequestMapping("/server/test")
@@ -12,6 +14,7 @@ import java.util.List;
 public class MyController {
 
     private final MyEntityRepository myEntityRepository;
+    private final KafkaService kafkaService;
 
     @GetMapping("/")
     public ResponseEntity<List<MyEntityDto>> getAllMyEntities() {
@@ -19,7 +22,8 @@ public class MyController {
     }
 
     @GetMapping("/fortnite")
-    public ResponseEntity<String> getHello() {
+    public ResponseEntity<String> getHello() throws ExecutionException, InterruptedException, TimeoutException {
+        kafkaService.sendToKafka();
         return ResponseEntity.ok().body("hello2");
     }
 
