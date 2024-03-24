@@ -42,7 +42,7 @@ public class KafkaConfiguration {
                 .compact()
                 .build();
     }
-    @KafkaListener(topics = "thing1")
+    @KafkaListener(topics = "thing1", groupId = "MY_GROUP_ID")
     public void listen(String data) {
         System.out.println(data);
     }
