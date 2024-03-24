@@ -1,0 +1,7 @@
+# Server properties
+server:
+  port: 8084
+  address: 0.0.0.0
+
+# Kafka properties
+kafka_server: ${KAFKA_SERVER_HOST}:29092
