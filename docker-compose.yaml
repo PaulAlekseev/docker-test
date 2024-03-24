@@ -50,7 +50,7 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       # Адрес и порт ZooKeeper-сервера, который используется Kafka для хранения метаданных
@@ -64,6 +64,9 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       # Количество репликаций в служебном топике офсетов
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka:29092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: zookeeper:2181
 
 #       определяет список хостов и портов брокеров Kafka,
 #       к которым клиент должен подключиться для установления соединения и обмена сообщениями.
