@@ -8,12 +8,14 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,17 +36,13 @@ public class MyConfig {
         // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
     }
-
+    @KafkaListener(topics = "thing1", clientIdPrefix = "myClientId")
+    public void listen(String data) {
+        System.out.println("KAFKAAAAAAAAAAAAAAAAA");
+        System.out.println(data);
+    }
     @Bean
     public KafkaTemplate<Integer, String> kafkaTemplate() {
         return new KafkaTemplate<Integer, String>(producerFactory());
-    }
-    @Bean
-    public NewTopic topic1() {
-        return TopicBuilder.name("thing1")
-                .partitions(10)
-                .replicas(3)
-                .compact()
-                .build();
     }
 }
