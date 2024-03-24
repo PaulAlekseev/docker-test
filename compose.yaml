@@ -7,8 +7,8 @@ services:
       - 127.0.0.1:3001:8004
     depends_on:
       - kafka
-    links:
-      - kafka
+      - db
+    restart: always
     environment:
       POSTGRESS_URL: db
       POSTGRESS_USERNAME: "root"
@@ -36,6 +36,8 @@ services:
   kafka-ui:
     container_name: kafka-ui
     image: provectuslabs/kafka-ui:latest
+    depends_on:
+      - kafka
     ports:
       - 8083:8080
     environment:
@@ -46,6 +48,7 @@ services:
   kafka:
     container_name: kafka
     image: confluentinc/cp-server:latest
+    restart: always
     depends_on:
       - zookeeper
     ports:
