@@ -14,7 +14,6 @@ import java.util.concurrent.TimeoutException;
 public class MyController {
 
     private final MyEntityRepository myEntityRepository;
-    private final KafkaService kafkaService;
 
     @GetMapping("/")
     public ResponseEntity<List<MyEntityDto>> getAllMyEntities() {
@@ -23,7 +22,6 @@ public class MyController {
 
     @GetMapping("/fortnite")
     public ResponseEntity<String> getHello() throws ExecutionException, InterruptedException, TimeoutException {
-        kafkaService.sendToKafka();
         return ResponseEntity.ok().body("hello2");
     }
 
